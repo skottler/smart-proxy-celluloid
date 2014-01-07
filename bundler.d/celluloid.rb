@@ -1,1 +1,2 @@
 gem 'celluloid'
+gem 'dcell'
