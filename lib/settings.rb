@@ -1,4 +1,3 @@
-require "checks"
 require "yaml"
 require "ostruct"
 require "pathname"
@@ -10,13 +9,13 @@ class Settings < OpenStruct
     all.merge!(current)
   end
 
-  def self.load_from_file(settings_path = Pathname.new(__FILE__).join("..", "..","..","config","settings.yml"))
+  def self.load_from_file(settings_path = Pathname.new(__FILE__).join("..","..","config","settings.yml"))
     settings = YAML.load(File.read(settings_path))
-    if PLATFORM =~ /mingw/
-      settings.delete :puppetca if settings.has_key? :puppetca
-      settings.delete :puppet   if settings.has_key? :puppet
-      settings[:x86_64] = File.exist?('c:\windows\sysnative\cmd.exe')
-    end
+    #if PLATFORM =~ /mingw/
+    #  settings.delete :puppetca if settings.has_key? :puppetca
+    #  settings.delete :puppet   if settings.has_key? :puppet
+    #  settings[:x86_64] = File.exist?('c:\windows\sysnative\cmd.exe')
+    #end
     load(settings)
   end
 

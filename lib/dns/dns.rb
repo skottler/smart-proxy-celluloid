@@ -1,4 +1,6 @@
-module SmartProxy::DNS
+require 'log'
+
+module Proxy::DNS
   class Error < RuntimeError; end
   class Collision < RuntimeError; end
   class Record

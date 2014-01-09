@@ -1,11 +1,13 @@
-require "dns"
+require "dns/dns"
 require 'resolv'
+require 'util'
+require 'log'
 
 module Proxy::DNS
   class Nsupdate < Record
 
-    include Proxy::Log
-    include Proxy::Util
+    include ::Proxy::Log
+    include ::Proxy::Util
     attr_reader :resolver
 
     def initialize options = {}
