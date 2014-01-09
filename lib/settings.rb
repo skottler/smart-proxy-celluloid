@@ -10,13 +10,18 @@ class Settings < OpenStruct
   end
 
   def self.load_from_file(settings_path = Pathname.new(__FILE__).join("..","..","config","settings.yml"))
-    settings = YAML.load(File.read(settings_path))
-    #if PLATFORM =~ /mingw/
-    #  settings.delete :puppetca if settings.has_key? :puppetca
-    #  settings.delete :puppet   if settings.has_key? :puppet
-    #  settings[:x86_64] = File.exist?('c:\windows\sysnative\cmd.exe')
-    #end
-    load(settings)
+    if File.exist?(settings_path)
+      settings = YAML.load(File.read(settings_path))
+      #if PLATFORM =~ /mingw/
+      #  settings.delete :puppetca if settings.has_key? :puppetca
+      #  settings.delete :puppet   if settings.has_key? :puppet
+      #  settings[:x86_64] = File.exist?('c:\windows\sysnative\cmd.exe')
+      #end
+      load(settings)
+    else
+      # TODO: use the global logger once it's implemented
+      raise "#{settings_path} does not exist."
+    end
   end
 
   def self.load(ahash)
