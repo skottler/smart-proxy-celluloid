@@ -1,7 +1,4 @@
-require "dns/dns"
 require 'resolv'
-require 'util'
-require 'log'
 
 module Proxy::DNS
   class Nsupdate < Record

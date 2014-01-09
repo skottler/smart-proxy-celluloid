@@ -1,11 +1,5 @@
-require 'either'
-require 'settings'
-require 'celluloid/autostart'
-
-::SETTINGS = Settings.load_from_file
-
 module SmartProxy
-  class DnsAgent
+  class DnsActor
     include ::Celluloid
 
     def dns_setup(opts)

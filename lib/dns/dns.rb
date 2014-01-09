@@ -1,4 +1,4 @@
-require 'log'
+require "dns/dns_actor"
 
 module Proxy::DNS
   class Error < RuntimeError; end
