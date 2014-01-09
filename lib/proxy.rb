@@ -16,7 +16,7 @@ module Proxy
   require "either"
 
   class ProxySupervisor < ::Celluloid::SupervisionGroup
-    supervise SmartProxy::DnsActor, as: :dns
+    supervise SmartProxy::DnsActor, as: :dns if SETTINGS.dns
   end
   ProxySupervisor.run!
 
