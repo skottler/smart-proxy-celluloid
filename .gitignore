@@ -13,6 +13,9 @@ test/tmp
 test/version_tmp
 tmp
 
+# Proxy-specific stuff
+config/settings.yml
+
 # YARD artifacts
 .yardoc
 _yardoc
