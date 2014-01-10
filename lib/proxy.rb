@@ -17,7 +17,7 @@ module Proxy
   require "log"
   require "util"
   require "either"
-  require "active_support/all"
+  require 'active_support/inflector'
 
 
   Dir.foreach("#{File.dirname(__FILE__)}") do |feature|
