@@ -8,15 +8,15 @@ module Proxy
   # global feature def is okay since it won't change after initial load.
   $features = []
 
-  require "settings"
+  require 'settings'
   ::SETTINGS = Settings.load_from_file
 
   require 'celluloid/autostart'
-  require "fileutils"
-  require "pathname"
-  require "log"
-  require "util"
-  require "either"
+  require 'fileutils'
+  require 'pathname'
+  require 'log'
+  require 'util'
+  require 'either'
   require 'active_support/inflector'
 
 
